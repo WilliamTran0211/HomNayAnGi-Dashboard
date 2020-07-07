@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 export default {
     SET_INGREDIENTS_LIST(state, list) {
-        Vue.set(state, 'ingredients', list);
+        Vue.set(state, 'ingredientsList', list);
     },
     ADD_INGREDIENTS(state, { id, name, possible_unit }) {
         state.ingredients.push({

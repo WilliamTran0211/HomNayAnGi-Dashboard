@@ -1,4 +1,4 @@
 export default {
-    recipes: [],
+    recipesList: [],
     recipesIngredients: []
 };

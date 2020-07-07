@@ -11,10 +11,10 @@ export default {
                 .then((response) => {
                     resolve(response);
 
-                    commit('SET_RECIPES_LIST');
+                    commit('SET_RECIPES_LIST', response.data);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -26,7 +26,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -38,7 +38,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -61,7 +61,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -84,7 +84,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -98,7 +98,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -113,7 +113,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -135,7 +135,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     }

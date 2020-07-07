@@ -12,10 +12,10 @@ export default {
                 .then((response) => {
                     resolve(response);
 
-                    commit('SET_INGREDIENTS_LIST');
+                    commit('SET_INGREDIENTS_LIST', response.data);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -27,7 +27,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -46,7 +46,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -61,7 +61,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     }

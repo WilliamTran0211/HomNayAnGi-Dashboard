@@ -23,9 +23,13 @@
             <div class="mt-6 flex items-center justify-between px-6">
                 <h4>
                     {{ Object.entries(this.data).length === 0 ? 'Thêm mới' : 'Cập nhật' }}
-                    Nguyên liệu
+                    nguyên liệu
                 </h4>
                 <feather-icon icon="XIcon" @click.stop="isSidebarActiveLocal = false" class="cursor-pointer"></feather-icon>
+            </div>
+            <vs-divider class="mb-0"></vs-divider>
+            <div class="p-6">
+                <vs-input label="Đơn vị" class="mt-5 w-full" v-model="dataUnit" type="text" name="unit" disabled />
             </div>
             <vs-divider class="mb-0"></vs-divider>
 
@@ -43,7 +47,7 @@
                     />
                     <span class="text-danger text-sm" v-show="errors.has('Amount')">{{ errors.first('Amount') }}</span>
 
-                    <vs-input label="Đơn vị" class="mt-5 w-2/3" v-model="dataUnit" type="text" name="unit" />
+                    <vs-input label="Đơn vị" class="mt-5 w-full" v-model="dataUnit" type="text" name="unit" />
                     <span class="text-danger text-sm" v-show="errors.has('unit')">{{ errors.first('unit') }}</span>
                 </div>
             </component>
@@ -229,6 +233,20 @@ export default {
                     };
                     this.$emit('closeSidebar', tmp);
                     this.initValues();
+                }
+            });
+        },
+        getTitleOfRecipe(id) {
+            this.recipesList.forEach((element) => {
+                if (element.id == id) {
+                    return element;
+                }
+            });
+        },
+        getNameOfIngredient(id) {
+            this.ingredientsList.forEach((element) => {
+                if (element.id == id) {
+                    return element;
                 }
             });
         }

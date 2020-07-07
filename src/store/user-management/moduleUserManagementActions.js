@@ -41,7 +41,7 @@ export default {
                 })
                 .catch((error) => {
                     localStorage.removeItem('user-info');
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -68,7 +68,7 @@ export default {
                 })
                 .catch((error) => {
                     localStorage.removeItem('user-info');
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -79,9 +79,10 @@ export default {
                 .get('/api/users/')
                 .then((response) => {
                     resolve(response);
+                    commit("SET_USERS_LIST", response.data)
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -94,7 +95,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -110,7 +111,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -137,7 +138,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -160,7 +161,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -183,7 +184,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     },
@@ -197,7 +198,7 @@ export default {
                     resolve(response);
                 })
                 .catch((error) => {
-                    reject(error);
+                    reject(error.response);
                 });
         });
     }

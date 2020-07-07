@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 export default {
     // SET_INGREDIENTS_LIST(state, list) {
     //     Vue.set(state, 'ingredients', list);
@@ -13,6 +11,6 @@ export default {
     // }
 
     SET_RECIPES_LIST(state, list) {
-        state.recipes = list;
+        state.recipesList = list;
     }
 };

@@ -17,6 +17,10 @@ export default {
         Vue.set(state, 'userProfile', '');
     },
 
+    SET_USERS_LIST(state, userList) {
+        Vue.set(state, 'usersList', userList)
+    },
+
     REMOVE_RECORD(state, itemId) {
         const userIndex = state.users.findIndex((u) => u.id === itemId);
         state.users.splice(userIndex, 1);

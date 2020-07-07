@@ -76,10 +76,10 @@
                             <p class="product-name font-medium truncate">{{ tr.id }}</p>
                         </vs-td>
                         <vs-td>
-                            <p class="product-name font-medium truncate">{{ tr.recipe }}</p>
+                            <p class="product-name font-medium truncate">{{ tr.recipe.title }}</p>
                         </vs-td>
                         <vs-td>
-                            <p class="product-name font-medium truncate">{{ tr.ingredient }}</p>
+                            <p class="product-name font-medium truncate">{{ tr.ingredient.name }}</p>
                         </vs-td>
                         <vs-td>
                             <p class="product-name font-medium truncate">{{ tr.amount }}</p>
@@ -100,6 +100,7 @@
 
 <script>
 import DataViewSidebar from './RecipesIngredientsSideView';
+import { mapGetters } from 'vuex';
 
 export default {
     components: {
@@ -121,6 +122,8 @@ export default {
         };
     },
     computed: {
+        ...mapGetters(['getIngredientInfo', 'getRecipeInfo']),
+
         currentPage() {
             if (this.isMounted) {
                 return this.$refs.table.currentx;
@@ -175,7 +178,6 @@ export default {
             await this.$store
                 .dispatch('recipesManager/fetchRecipes')
                 .then((result) => {
-                    console.log(result);
                     this.recipesList = result.data;
                 })
                 .catch((err) => {
@@ -193,7 +195,6 @@ export default {
             await this.$store
                 .dispatch('ingredientsManager/fetchIngredients')
                 .then((result) => {
-                    console.log(result);
                     this.ingredientsList = result.data;
                 })
                 .catch((err) => {
@@ -248,11 +249,14 @@ export default {
             }
         }
     },
-    created() {
-    },
+    created() {},
     async mounted() {
+        await this.getRecipesList();
+        await this.getIngredientsList();
+        await this.getList();
         this.isMounted = true;
-        this.getList();
+        console.log('In mounted() ', this.$store.state.recipesList);
+        console.log('In mounted() ', this.$store.state.ingredientsList);
     }
 };
 </script>

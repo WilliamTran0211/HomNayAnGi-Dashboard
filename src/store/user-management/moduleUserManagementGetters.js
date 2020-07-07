@@ -8,6 +8,9 @@
 ==========================================================================================*/
 
 export default {
-  user: state => state.userProfile,
-  // isAuthenticated: state => !!JSON.stringify(state.userProfile)
+    user: (state) => state.userProfile,
+    // isAuthenticated: state => !!JSON.stringify(state.userProfile)
+    countUsers: (state) => {
+        return state.users.usersList.lenght;
+    }
 };
