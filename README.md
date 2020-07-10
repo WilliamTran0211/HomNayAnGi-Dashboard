@@ -3,7 +3,7 @@ Author: Tran Tien Cuong
 
 Purpose: This is a project of my graduate thesis.
 
-Description: This is a Website Managerment for [HomNayAnGi-Backend](https://github.com/thiennam0211/HomNayAnGi-Backend)
+Description: A Managerment Website for [HomNayAnGi-Backend](https://github.com/thiennam0211/HomNayAnGi-Backend)
 
 Build with: [VueJS](https://vuejs.org/), [VueX](https://vuex.vuejs.org/), [Express](https://expressjs.com/)
 
