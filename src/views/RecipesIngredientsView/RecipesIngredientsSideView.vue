@@ -25,15 +25,40 @@
                     {{ Object.entries(this.data).length === 0 ? 'Thêm mới' : 'Cập nhật' }}
                     nguyên liệu
                 </h4>
-                <feather-icon icon="XIcon" @click.stop="isSidebarActiveLocal = false" class="cursor-pointer"></feather-icon>
+                <feather-icon
+                    icon="XIcon"
+                    @click.stop="isSidebarActiveLocal = false"
+                    class="cursor-pointer"
+                ></feather-icon>
             </div>
             <vs-divider class="mb-0"></vs-divider>
             <div class="p-6">
-                <vs-input label="Đơn vị" class="mt-5 w-full" v-model="dataUnit" type="text" name="unit" disabled />
+                <vs-input
+                    label="Tên nguyên liệu"
+                    class="mt-5 w-full"
+                    v-model="dataIngredientName"
+                    type="text"
+                    name="name"
+                    disabled
+                />
+                <vs-input
+                    label="Tên Công thức"
+                    class="mt-5 w-full"
+                    v-model="dataIngredientName"
+                    type="text"
+                    name="name"
+                    disabled
+                />
             </div>
+            <div class="p-6"></div>
             <vs-divider class="mb-0"></vs-divider>
 
-            <component :is="scrollbarTag" class="scroll-area--data-list-add-new" :settings="settings" :key="$vs.rtl">
+            <component
+                :is="scrollbarTag"
+                class="scroll-area--data-list-add-new"
+                :settings="settings"
+                :key="$vs.rtl"
+            >
                 <div class="p-6">
                     <vs-input-number
                         label="Số lượng"
@@ -45,16 +70,28 @@
                         name="Amount"
                         v-validate="'required|between:1,1000'"
                     />
-                    <span class="text-danger text-sm" v-show="errors.has('Amount')">{{ errors.first('Amount') }}</span>
+                    <span
+                        class="text-danger text-sm"
+                        v-show="errors.has('Amount')"
+                    >{{ errors.first('Amount') }}</span>
 
-                    <vs-input label="Đơn vị" class="mt-5 w-full" v-model="dataUnit" type="text" name="unit" />
-                    <span class="text-danger text-sm" v-show="errors.has('unit')">{{ errors.first('unit') }}</span>
+                    <vs-input
+                        label="Đơn vị"
+                        class="mt-5 w-full"
+                        v-model="dataUnit"
+                        type="text"
+                        name="unit"
+                    />
+                    <span
+                        class="text-danger text-sm"
+                        v-show="errors.has('unit')"
+                    >{{ errors.first('unit') }}</span>
                 </div>
             </component>
 
             <div class="flex flex-wrap items-center p-6" slot="footer">
-                <vs-button class="mr-6" @click="submitData" :disabled="!isFormValid">Submit</vs-button>
-                <vs-button type="border" color="danger" @click="isSidebarActiveLocal = false">Cancel</vs-button>
+                <vs-button class="mr-6" @click="submitData" :disabled="!isFormValid">Lưu</vs-button>
+                <vs-button type="border" color="danger" @click="isSidebarActiveLocal = false">Huỷ</vs-button>
             </div>
         </vs-sidebar>
     </div>
@@ -91,6 +128,8 @@ export default {
             dataRecipe: '',
             dataIngredient: '',
 
+            dataIngredientName: '',
+
             hasData: false,
 
             isSubmit: undefined,
@@ -123,6 +162,8 @@ export default {
                 this.dataAmount = amount;
                 this.dataRecipe = recipe;
                 this.ingredient = ingredient;
+                console.log('ingredienttttttttttttt  ', ingredient);
+                this.dataIngredientName = this.ingredient.name;
                 this.initValues();
             }
             // Object.entries(this.data).length === 0 ? this.initValues() : { this.dataId, this.dataName, this.dataCategory, this.dataOrder_status, this.dataPrice } = JSON.parse(JSON.stringify(this.data))

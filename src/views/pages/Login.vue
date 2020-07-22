@@ -42,7 +42,7 @@
 
                                     <div class="flex flex-wrap justify-between my-5">
                                         <vs-checkbox v-model="checkbox_remember_me" class="mb-3">Nhớ mật khẩu</vs-checkbox>
-                                        <router-link to>Quên mật khẩu?</router-link>
+                                        <!-- <router-link to>Quên mật khẩu?</router-link> -->
                                     </div>
                                     <vs-button @click="userLogin">Đăng Nhập</vs-button>
                                 </div>

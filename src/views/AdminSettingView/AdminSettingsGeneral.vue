@@ -4,8 +4,18 @@
         <div class="flex flex-wrap items-center mb-base">
             <vs-avatar :src="avatar" size="70px" class="mr-4 mb-4" />
             <div>
-                <input type="file" class="hidden" ref="updateImgInput" @change="updateCurrImg" accept="image/*" />
-                <vs-button class="mr-4" type="flat" @click="$refs.updateImgInput.click()">Update Image</vs-button>
+                <input
+                    type="file"
+                    class="hidden"
+                    ref="updateImgInput"
+                    @change="updateCurrImg"
+                    accept="image/*"
+                />
+                <vs-button
+                    class="mr-4"
+                    type="flat"
+                    @click="$refs.updateImgInput.click()"
+                >Update Image</vs-button>
             </div>
         </div>
 
@@ -16,12 +26,17 @@
         <vs-input class="w-full" label="Ngày sinh" v-model="birthday" type="date" name="Ngày sinh" />
 
         <vs-select v-model="gender" label="Giới tính" class="mt-5 w-full">
-            <vs-select-item :key="item.value" :value="item.value" :text="item.text" v-for="item in gender_choices" />
+            <vs-select-item
+                :key="item.value"
+                :value="item.value"
+                :text="item.text"
+                v-for="item in gender_choices"
+            />
         </vs-select>
 
         <!-- Save & Reset Button -->
         <div class="flex flex-wrap items-center justify-end">
-            <vs-button class="ml-auto mt-2" @click="editData">Save Changes</vs-button>
+            <vs-button class="ml-auto mt-2" @click="editData">Lưu</vs-button>
         </div>
     </vx-card>
 </template>

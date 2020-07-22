@@ -24,11 +24,20 @@
                     {{ Object.entries(this.data).length === 0 ? 'Thêm mới' : 'Cập nhật' }}
                     người dùng
                 </h4>
-                <feather-icon icon="XIcon" @click.stop="isSidebarActiveLocal = false" class="cursor-pointer"></feather-icon>
+                <feather-icon
+                    icon="XIcon"
+                    @click.stop="isSidebarActiveLocal = false"
+                    class="cursor-pointer"
+                ></feather-icon>
             </div>
             <vs-divider class="mb-0"></vs-divider>
 
-            <component :is="scrollbarTag" class="scroll-area--data-list-add-new" :settings="settings" :key="$vs.rtl">
+            <component
+                :is="scrollbarTag"
+                class="scroll-area--data-list-add-new"
+                :settings="settings"
+                :key="$vs.rtl"
+            >
                 <div class="p-6">
                     <!-- Image -->
 
@@ -37,45 +46,120 @@
                             <img :src="dataAvatar" alt="img" class="responsive" />
                         </div>
                         <div class="modify-img flex justify-between mt-5">
-                            <input type="file" class="hidden" ref="updateImgInput" @change="updateCurrImg" accept="image/*" />
-                            <vs-button class="mr-4" type="flat" @click="$refs.updateImgInput.click()">Update Image</vs-button>
-                            <vs-button type="flat" color="#999" @click="dataAvatar = null">Remove Image</vs-button>
+                            <input
+                                type="file"
+                                class="hidden"
+                                ref="updateImgInput"
+                                @change="updateCurrImg"
+                                accept="image/*"
+                            />
+                            <vs-button
+                                class="mr-4"
+                                type="flat"
+                                @click="$refs.updateImgInput.click()"
+                            >Update Image</vs-button>
+                            <vs-button
+                                type="flat"
+                                color="#999"
+                                @click="dataAvatar = null"
+                            >Remove Image</vs-button>
                         </div>
                     </template>
 
                     <!-- Email -->
-                    <vs-input label="Email" v-model="dataEmail" class="mt-5 w-full"  type="email" name="email" v-validate="'required'" />
-                    <span class="text-danger text-sm" v-show="errors.has('email')">{{ errors.first('email') }}</span>
+                    <vs-input
+                        label="Email"
+                        v-model="dataEmail"
+                        class="mt-5 w-full"
+                        type="email"
+                        name="email"
+                        v-validate="'required'"
+                    />
+                    <span
+                        class="text-danger text-sm"
+                        v-show="errors.has('email')"
+                    >{{ errors.first('email') }}</span>
 
-                    <vs-input label="Mật khẩu" v-model="dataPassword" class="mt-5 w-full" type="password" name="password" v-validate="'required'" :disabled="hasData" />
-                    <span class="text-danger text-sm" v-show="errors.has('password')">{{ errors.first('password') }}</span>
+                    <vs-input
+                        label="Mật khẩu"
+                        v-model="dataPassword"
+                        class="mt-5 w-full"
+                        type="password"
+                        name="password"
+                        v-validate="'required'"
+                        :disabled="hasData"
+                    />
+                    <span
+                        class="text-danger text-sm"
+                        v-show="errors.has('password')"
+                    >{{ errors.first('password') }}</span>
 
                     <!-- Full name -->
-                    <vs-input label="Họ tên" v-model="dataFullname" class="mt-5 w-full" name="Họ tên" v-validate="'required'" />
-                    <span class="text-danger text-sm" v-show="errors.has('Họ tên')">{{ errors.first('Họ tên') }}</span>
+                    <vs-input
+                        label="Họ tên"
+                        v-model="dataFullname"
+                        class="mt-5 w-full"
+                        name="Họ tên"
+                        v-validate="'required'"
+                    />
+                    <span
+                        class="text-danger text-sm"
+                        v-show="errors.has('Họ tên')"
+                    >{{ errors.first('Họ tên') }}</span>
 
                     <!-- Full name -->
-                    <vs-input label="Tên hiển thị" v-model="dataDisplayname" class="mt-5 w-full" name="Tên hiển thị" v-validate="'required'" />
-                    <span class="text-danger text-sm" v-show="errors.has('Tên hiển thị')">{{ errors.first('Tên hiển thị') }}</span>
+                    <vs-input
+                        label="Tên hiển thị"
+                        v-model="dataDisplayname"
+                        class="mt-5 w-full"
+                        name="Tên hiển thị"
+                        v-validate="'required'"
+                    />
+                    <span
+                        class="text-danger text-sm"
+                        v-show="errors.has('Tên hiển thị')"
+                    >{{ errors.first('Tên hiển thị') }}</span>
 
                     <!-- Full name -->
-                    <vs-input label="Ngày sinh" v-model="dataBirthday" class="mt-5 w-full" type="date" name="Ngày sinh" v-validate="'required'" />
-                    <span class="text-danger text-sm" v-show="errors.has('Ngày sinh')">{{ errors.first('Ngày sinh') }}</span>
+                    <vs-input
+                        label="Ngày sinh"
+                        v-model="dataBirthday"
+                        class="mt-5 w-full"
+                        type="date"
+                        name="Ngày sinh"
+                        v-validate="'required'"
+                    />
+                    <span
+                        class="text-danger text-sm"
+                        v-show="errors.has('Ngày sinh')"
+                    >{{ errors.first('Ngày sinh') }}</span>
 
                     <vs-select v-model="dataGender" label="Giới tính" class="mt-5 w-full">
-                        <vs-select-item :key="item.value" :value="item.value" :text="item.text" v-for="item in gender_choices" />
+                        <vs-select-item
+                            :key="item.value"
+                            :value="item.value"
+                            :text="item.text"
+                            v-for="item in gender_choices"
+                        />
                     </vs-select>
 
                     <div class="upload-img mt-5" v-if="!dataAvatar">
-                        <input id="file" type="file" class="hidden" ref="uploadImgInput" @change="updateCurrImg" accept="image/*" />
+                        <input
+                            id="file"
+                            type="file"
+                            class="hidden"
+                            ref="uploadImgInput"
+                            @change="updateCurrImg"
+                            accept="image/*"
+                        />
                         <vs-button @click="$refs.uploadImgInput.click()">Upload Image</vs-button>
                     </div>
                 </div>
             </component>
 
             <div class="flex flex-wrap items-center p-6" slot="footer">
-                <vs-button class="mr-6" @click="submitData" :disabled="!isFormValid">Submit</vs-button>
-                <vs-button type="border" color="danger" @click="isSidebarActiveLocal = false">Cancel</vs-button>
+                <vs-button class="mr-6" @click="submitData" :disabled="!isFormValid">Lưu</vs-button>
+                <vs-button type="border" color="danger" @click="isSidebarActiveLocal = false">Huỷ</vs-button>
             </div>
         </vs-sidebar>
     </div>
@@ -84,7 +168,7 @@
 <script>
 import Datepicker from 'vuejs-datepicker';
 import VuePerfectScrollbar from 'vue-perfect-scrollbar';
-import vSelect from 'vue-select'
+import vSelect from 'vue-select';
 
 export default {
     props: {
@@ -100,7 +184,7 @@ export default {
     components: {
         VuePerfectScrollbar,
         Datepicker,
-        'v-select': vSelect,
+        'v-select': vSelect
     },
     created() {
         this.today = new Date();

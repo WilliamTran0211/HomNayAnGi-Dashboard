@@ -1,12 +1,27 @@
 <template>
     <vx-card no-shadow>
-        <vs-input class="w-full mb-base" label-placeholder="Old Password" v-model="old_password" />
-        <vs-input class="w-full mb-base" label-placeholder="New Password" v-model="new_password" />
-        <vs-input class="w-full mb-base" label-placeholder="Confirm Password" v-model="confirm_new_password" />
+        <vs-input
+            class="w-full mb-base"
+            label-placeholder="Mật khẩu cũ"
+            type="password"
+            v-model="old_password"
+        />
+        <vs-input
+            class="w-full mb-base"
+            label-placeholder="Mật khẩu mới"
+            type="password"
+            v-model="new_password"
+        />
+        <vs-input
+            class="w-full mb-base"
+            label-placeholder="Xác nhận mật khẩu"
+            type="password"
+            v-model="confirm_new_password"
+        />
 
         <!-- Save & Reset Button -->
         <div class="flex flex-wrap items-center justify-end">
-            <vs-button class="ml-auto mt-2" @click="changePassword()">Save Changes</vs-button>
+            <vs-button class="ml-auto mt-2" @click="changePassword()">Lưu</vs-button>
         </div>
     </vx-card>
 </template>

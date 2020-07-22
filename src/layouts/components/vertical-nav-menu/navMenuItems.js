@@ -20,12 +20,6 @@ export default [
         i18n: 'Apps',
         items: [
             {
-                url: '/users-manager',
-                name: 'Quản lý người dùng',
-                slug: 'user-manager',
-                icon: 'UserIcon'
-            },
-            {
                 url: '/recipes-manager',
                 name: 'Quản lý món ăn',
                 slug: 'recipes-manager',
@@ -44,10 +38,23 @@ export default [
                 ]
             },
             {
-                url: '/ingredients-manager',
-                name: 'Quản lý thực phẩm',
+                url: '',
+                name: 'Quản lý danh mục ',
                 slug: 'ingredients-manager',
-                icon: 'DatabaseIcon'
+                icon: 'DatabaseIcon',
+                submenu: [
+                    {
+                        url: '/ingredients-manager',
+                        name: 'thực phẩm',
+                        slug: 'ingredients'
+                    }
+                ]
+            },
+            {
+                url: '/users-manager',
+                name: 'Quản lý người dùng',
+                slug: 'user-manager',
+                icon: 'UserIcon'
             }
             // {
             //   url: "/ingredients-manager",
